@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f4bf5067b92dd947a15eb8dc970b4c0, type: 3}
+  m_Name: GameConfig_Finer
+  m_EditorClassIdentifier: 
+  easyWordsFile: easy
+  mediumWordsFile: medium
+  hardWordsFile: hard
+  initialSpawnDelay: 2
+  easyFallSpeed: 0.6
+  mediumFallSpeed: 0.4
+  hardFallSpeed: 0.3
+  spawnDelayTimedPercentage: 0.999
+  missesAllowed: 10
+  hardWordChance: 0.2
+  hardWordCoolDown: 5
+  CPMIntervals:
+  - minCPMValue: 0
+    maxCPMValue: 100
+    fallSpeedMultiplier: 0.5
+    spawnDelayMultiplier: 2.5
+    scoreMultiplier: 0.5
+  - minCPMValue: 100
+    maxCPMValue: 200
+    fallSpeedMultiplier: 0.5
+    spawnDelayMultiplier: 2
+    scoreMultiplier: 0.6
+  - minCPMValue: 200
+    maxCPMValue: 300
+    fallSpeedMultiplier: 0.7
+    spawnDelayMultiplier: 1.4
+    scoreMultiplier: 2
+  - minCPMValue: 300
+    maxCPMValue: 400
+    fallSpeedMultiplier: 0.9
+    spawnDelayMultiplier: 1.2
+    scoreMultiplier: 3
+  - minCPMValue: 400
+    maxCPMValue: 500
+    fallSpeedMultiplier: 1.2
+    spawnDelayMultiplier: 0.9
+    scoreMultiplier: 4
+  - minCPMValue: 500
+    maxCPMValue: 700
+    fallSpeedMultiplier: 1.4
+    spawnDelayMultiplier: 0.7
+    scoreMultiplier: 5
+  - minCPMValue: 500
+    maxCPMValue: 700
+    fallSpeedMultiplier: 1.6
+    spawnDelayMultiplier: 0.5
+    scoreMultiplier: 6
+  - minCPMValue: 700
+    maxCPMValue: 1200
+    fallSpeedMultiplier: 1.7
+    spawnDelayMultiplier: 0.4
+    scoreMultiplier: 7
+  perfectWordBonus: 3
+  pointsPerCharacter: 1
+  typingSpeedUnitString: cpm

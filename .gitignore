@@ -70,3 +70,13 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Others
+
+.config/
+.vscode/
+.editorconfig 
+.vsconfig
+
+# TextMesh Pro files
+# [Aa]ssets/TextMesh*Pro/
