@@ -203,7 +203,7 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Time: 0.1
-  m_PreviewTimeScale: 0.99
+  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.85
@@ -277,4 +277,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitParticleEffect: {fileID: 1706759898638172, guid: a0c81aa001a257240817ccec1018b4f4, type: 3}
-  bulletSpeed: 100
+  bulletSpeed: 200

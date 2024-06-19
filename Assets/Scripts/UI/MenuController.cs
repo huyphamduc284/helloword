@@ -1,8 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MenuController : MonoBehaviour {
 
+    [SerializeField] private GameConfig config;
+    [SerializeField] public TMP_Text difficultyText;
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject highscoresMenu;
@@ -12,6 +15,7 @@ public class MenuController : MonoBehaviour {
         mainMenu.SetActive(true);
         settingsMenu.SetActive(false);
         highscoresMenu.SetActive(false);
+        UpdateDifficultyUI();
     }
 
     public void Play() {
@@ -26,6 +30,7 @@ public class MenuController : MonoBehaviour {
     public void HideSettings() {
         settingsMenu.SetActive(false);
         mainMenu.SetActive(true);
+        UpdateDifficultyUI();
     }
 
     public void ShowHighscores() {
@@ -53,5 +58,11 @@ public class MenuController : MonoBehaviour {
         UnityEditor.EditorApplication.isPlaying = false;
         #endif
         Application.Quit();
+    }
+
+    void UpdateDifficultyUI()
+    {
+        float difficulty = PlayerPrefs.GetFloat("DifficultyMult", 1);
+        difficultyText.text = "Difficulty: " + difficulty.ToString();
     }
 }

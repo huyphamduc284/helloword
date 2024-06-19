@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3632565576295928634, guid: 15aa9de30ef232649ace421ab410fc15, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,8 +105,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: <font-weight="600">Hey how ya doin I'm just an extremly long word</font-weight>
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 15aa9de30ef232649ace421ab410fc15, type: 2}
-  m_sharedMaterial: {fileID: -3632565576295928634, guid: 15aa9de30ef232649ace421ab410fc15, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -131,11 +131,11 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontSize: 4
-  m_fontSizeBase: 4
+  m_fontSizeBase: 5
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 4
+  m_fontSizeMax: 6
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -355,7 +355,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2599557537998171709, guid: cc449a7347dea294ca0dc91263149866, type: 3}
       propertyPath: m_Time
-      value: 3.92
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2599557537998171709, guid: cc449a7347dea294ca0dc91263149866, type: 3}
+      propertyPath: m_Parameters.colorGradient.ctime1
+      value: 43562
+      objectReference: {fileID: 0}
+    - target: {fileID: 2599557537998171709, guid: cc449a7347dea294ca0dc91263149866, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.b
+      value: 0.2511125
+      objectReference: {fileID: 0}
+    - target: {fileID: 2599557537998171709, guid: cc449a7347dea294ca0dc91263149866, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 0.6807026
+      objectReference: {fileID: 0}
+    - target: {fileID: 2599557537998171709, guid: cc449a7347dea294ca0dc91263149866, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.r
+      value: 0.9339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 2599557537998171709, guid: cc449a7347dea294ca0dc91263149866, type: 3}
+      propertyPath: m_Parameters.colorGradient.m_NumColorKeys
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

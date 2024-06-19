@@ -14,8 +14,11 @@ public class ProgressionManager : MonoBehaviour {
 
     private Dictionary<DifficultyLevel, float> baseSpeedDictionary;
 
+    private float initialSpawnDelay = 2f;
     private float spawnDelayTimedMultiplier = 1f; // changes based on time
     private ScoreCalculator scoreCalculator;
+
+    public float difficultyMultiplier = 1f;
 
     private void Start() {
         gameManager = GameManager.Instance;
@@ -28,6 +31,9 @@ public class ProgressionManager : MonoBehaviour {
             [DifficultyLevel.Medium] = config.mediumFallSpeed,
             [DifficultyLevel.Hard] = config.hardFallSpeed,
         };
+        difficultyMultiplier = PlayerPrefs.GetFloat("DifficultyMult", 1);
+        initialSpawnDelay = PlayerPrefs.GetFloat("SpawnDelay", 2);
+        //Debug.Log(difficultyMultiplier);
 
         StartCoroutine(SpawnRepeating());
     }
@@ -39,7 +45,7 @@ public class ProgressionManager : MonoBehaviour {
 
             // decide whether to generate hard or easy word
             wordLevel = GenerateDifficultyLevel();
-            Debug.Log(wordLevel);
+            //Debug.Log(wordLevel);
             spawnedWord = spawner.SpawnWordGameObject(wordLevel);
 
             // set word fallspeed
@@ -50,7 +56,7 @@ public class ProgressionManager : MonoBehaviour {
         }
     }
     private float CalculateSpawnDelay() {
-        float spawnDelay = config.initialSpawnDelay
+        float spawnDelay = initialSpawnDelay
             * spawnDelayTimedMultiplier
             * gameManager.getCPMSpawnDelayMultiplier(speedCalculator.AverageCPMLast10);
 
@@ -67,7 +73,6 @@ public class ProgressionManager : MonoBehaviour {
 
     private DifficultyLevel GenerateDifficultyLevel() {
         int randomNumber = Random.Range(0, 10);
-        Debug.Log(randomNumber);
         if (randomNumber <= 4)
         {
             return DifficultyLevel.Easy;
@@ -84,7 +89,7 @@ public class ProgressionManager : MonoBehaviour {
     }
 
     private float GenerateFallSpeed(DifficultyLevel level) {
-        return baseSpeedDictionary[level] * gameManager.GetCPMFallSpeedMultiplier(speedCalculator.AverageCPMLast10);
+        return baseSpeedDictionary[level] * gameManager.GetCPMFallSpeedMultiplier(speedCalculator.AverageCPMLast10) * difficultyMultiplier;
     }
 
     public void AddToAverageCPM(WordController word) {

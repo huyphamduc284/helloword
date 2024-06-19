@@ -36,7 +36,7 @@ public class WordController : MonoBehaviour {
         {
             spriteIndex = 3;
             SetColor(new Color(50 / 255f, 173 / 255f, 214 / 255f, 1));
-            AdjustScale(-0.2f);
+            AdjustScale(-0.15f);
             SetTrailTime(1.5f);
         }
         else if (word.Length <= 6)
@@ -62,7 +62,7 @@ public class WordController : MonoBehaviour {
             spriteIndex = 0;
             SetColor(new Color(50 / 255f, 173 / 255f, 214 / 255f, 1));
         }
-        Debug.Log(spriteIndex);
+        //Debug.Log(spriteIndex);
 
         prefabSpriteRenderer.sprite = sprites[spriteIndex];
     }
