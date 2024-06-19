@@ -454,7 +454,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.032990456, y: -5.86}
+  m_Offset: {x: -0.032990456, y: -8.71}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -465,7 +465,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 27.1, y: 1.6610155}
+  m_Size: {x: 28.15, y: 1.6610155}
   m_EdgeRadius: 0
 --- !u!114 &94421950
 MonoBehaviour:
@@ -1966,7 +1966,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.704484
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3326,7 +3326,7 @@ Transform:
   m_GameObject: {fileID: 1054705958}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.5646, y: 26.3461, z: 0}
+  m_LocalPosition: {x: 69.8, y: 26.3461, z: 0}
   m_LocalScale: {x: 5.4, y: 5.4, z: 5.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3632,7 +3632,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.174, z: 0}
-  m_LocalScale: {x: 26.15, y: 13.203235, z: 26.15}
+  m_LocalScale: {x: 37.21, y: 18.78747, z: 37.21}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -4234,7 +4234,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 5, y: 5}
+  m_AnchoredPosition: {x: 1272, y: 5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1443774779
@@ -4291,7 +4291,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -4732,7 +4732,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -62.00003}
+  m_AnchoredPosition: {x: 0, y: -662}
   m_SizeDelta: {x: 393.929, y: 57.159}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1569703934
@@ -5513,6 +5513,10 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 1470232904424208, guid: f6e32daa086f98a45a3106da59e94778, type: 3}
+    - target: {fileID: 7088960811562699482, guid: d69014ce00b9a3d4cbbb73624413a2bd, type: 3}
+      propertyPath: rotationSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7088960812281203448, guid: d69014ce00b9a3d4cbbb73624413a2bd, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
