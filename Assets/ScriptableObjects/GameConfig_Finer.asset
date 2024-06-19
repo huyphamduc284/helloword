@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: GameConfig_Finer
   m_EditorClassIdentifier: 
   easyWordsFile: easy
+  mediumWordsFile: medium
   hardWordsFile: hard
   initialSpawnDelay: 2
   easyFallSpeed: 0.6
+  mediumFallSpeed: 0.4
   hardFallSpeed: 0.3
   spawnDelayTimedPercentage: 0.999
   missesAllowed: 10

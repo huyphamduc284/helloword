@@ -37,29 +37,40 @@ public class WordController : MonoBehaviour {
             spriteIndex = 3;
             SetColor(new Color(50 / 255f, 173 / 255f, 214 / 255f, 1));
             AdjustScale(-0.2f);
+            SetTrailTime(1.5f);
         }
         else if (word.Length <= 6)
         {
             spriteIndex = 0;
             SetColor(new Color(214 / 255f, 50 / 255f, 50 / 255f, 1));
+            SetTrailTime(2f);
         }
         else if (word.Length <= 10)
         {
             spriteIndex = 1;
             SetColor(new Color(230 / 255f, 167 / 255f, 54 / 255f, 1));
+            SetTrailTime(5f);
         }
         else if (word.Length > 10)
         {
             spriteIndex = 2;
             SetColor(new Color(50 / 255f, 173 / 255f, 214 / 255f, 1));
+            SetTrailTime(5f);
         }
         else
         {
             spriteIndex = 0;
             SetColor(new Color(50 / 255f, 173 / 255f, 214 / 255f, 1));
         }
+        Debug.Log(spriteIndex);
 
         prefabSpriteRenderer.sprite = sprites[spriteIndex];
+    }
+
+    public void SetTrailTime(float time)
+    {
+        TrailRenderer trail = prefabSpriteRenderer.GetComponent<TrailRenderer>();
+        trail.time = time;
     }
 
     public void SetColor(Color color)

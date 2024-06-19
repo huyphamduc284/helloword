@@ -9,6 +9,8 @@ public class EntitySpawner : MonoBehaviour {
     private float verticalSpawnOffset;
     [SerializeField]
     private float horizontalSpawnOffset;
+    [SerializeField]
+    private float zSpawnOffset;
     private RandomWordGenerator wordGenerator;
 
     private void Start() {
@@ -36,15 +38,17 @@ public class EntitySpawner : MonoBehaviour {
 
         Vector3 topLeftCorner = cam.ViewportToWorldPoint(new Vector3(0, 1, cam.nearClipPlane));
         Vector3 topRightCorner = cam.ViewportToWorldPoint(new Vector3(1, 1, cam.nearClipPlane));
+        float middlePoint = (topLeftCorner.x + topRightCorner.x) / 2;
+        float randomOffset = Random.Range(topRightCorner.x - horizontalSpawnOffset, topLeftCorner.x + horizontalSpawnOffset);
 
-        float xCoord = difficulty == DifficultyLevel.Easy ?
-            Random.Range(topRightCorner.x - horizontalSpawnOffset, topLeftCorner.x + horizontalSpawnOffset)
+        float xCoord = difficulty != DifficultyLevel.Hard ?
+            randomOffset
             :
-            (topLeftCorner.x + topRightCorner.x) / 2;
+            middlePoint + randomOffset;
 
         float yCoord = topRightCorner.y + verticalSpawnOffset;
 
-        return new Vector3(xCoord, yCoord);
+        return new Vector3(xCoord, yCoord, zSpawnOffset);
     }
 
 }

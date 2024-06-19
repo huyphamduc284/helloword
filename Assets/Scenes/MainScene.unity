@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeWord: {fileID: 0}
-  oldActiveWordPosition: {x: 0, y: 0, z: 0}
+  oldActiveWordPosition: {x: -5.504975, y: 2.539533, z: 0}
   explosionEffect: {fileID: 1039865511874772, guid: 799f45b264552a44da29fc707a2b8379, type: 3}
   letterMissEffect: {fileID: 1706759898638172, guid: a0c81aa001a257240817ccec1018b4f4, type: 3}
 --- !u!4 &94421942
@@ -367,8 +367,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wordPrefab: {fileID: 5592726464224038169, guid: 107d15b321d0cbe478e2e29b30b34877, type: 3}
-  verticalSpawnOffset: -0.75
+  verticalSpawnOffset: 1
   horizontalSpawnOffset: 2
+  zSpawnOffset: -2
 --- !u!114 &94421946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,7 +465,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 19.13, y: 1.6610155}
+  m_Size: {x: 27.1, y: 1.6610155}
   m_EdgeRadius: 0
 --- !u!114 &94421950
 MonoBehaviour:
@@ -5470,7 +5471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7088960811562699477, guid: d69014ce00b9a3d4cbbb73624413a2bd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7088960811562699477, guid: d69014ce00b9a3d4cbbb73624413a2bd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6468,7 +6469,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6039989230729922332, guid: 9605ce11a10683249927aa8a50fc24fe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6039989230729922332, guid: 9605ce11a10683249927aa8a50fc24fe, type: 3}
       propertyPath: m_LocalRotation.w

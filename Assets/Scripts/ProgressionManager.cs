@@ -25,6 +25,7 @@ public class ProgressionManager : MonoBehaviour {
         config = gameManager.config;
         baseSpeedDictionary = new Dictionary<DifficultyLevel, float> {
             [DifficultyLevel.Easy] = config.easyFallSpeed,
+            [DifficultyLevel.Medium] = config.mediumFallSpeed,
             [DifficultyLevel.Hard] = config.hardFallSpeed,
         };
 
@@ -38,6 +39,7 @@ public class ProgressionManager : MonoBehaviour {
 
             // decide whether to generate hard or easy word
             wordLevel = GenerateDifficultyLevel();
+            Debug.Log(wordLevel);
             spawnedWord = spawner.SpawnWordGameObject(wordLevel);
 
             // set word fallspeed
@@ -64,7 +66,17 @@ public class ProgressionManager : MonoBehaviour {
     }
 
     private DifficultyLevel GenerateDifficultyLevel() {
-        if (canSpawnHardWord && Random.Range(0f, 1f) < config.hardWordChance) {
+        int randomNumber = Random.Range(0, 10);
+        Debug.Log(randomNumber);
+        if (randomNumber <= 4)
+        {
+            return DifficultyLevel.Easy;
+        }
+        else if (randomNumber <= 6)
+        {
+            return DifficultyLevel.Medium;
+        }
+        else if (randomNumber <= 10 && canSpawnHardWord /*&& Random.Range(0f, 1f) < config.hardWordChance*/) {
             StartCoroutine(WaitForHardWordCoolDown());
             return DifficultyLevel.Hard;
         }

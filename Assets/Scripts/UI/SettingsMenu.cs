@@ -33,11 +33,13 @@ public class SettingsMenu : MonoBehaviour {
     public void HandleLanguageChange(int val) {
         if (val == 0) {
             config.easyWordsFile = "easy";
+            config.mediumWordsFile = "medium";
             config.hardWordsFile = "hard";
         } 
         if (val == 1) {
-            config.easyWordsFile = "easy_es";
-            config.hardWordsFile = "hard_es";
+            config.easyWordsFile = "easy";
+            config.mediumWordsFile = "medium";
+            config.hardWordsFile = "hard";
         }
     }
 }
