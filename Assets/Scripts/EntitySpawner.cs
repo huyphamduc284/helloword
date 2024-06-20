@@ -3,8 +3,11 @@ using UnityEngine;
 public class EntitySpawner : MonoBehaviour {
 
     private GameManager gameManager;
+    private GameConfig config;
     [SerializeField]
     private GameObject wordPrefab;
+    [SerializeField]
+    private GameObject wordPowerupPrefab;
     [SerializeField]
     private float verticalSpawnOffset;
     [SerializeField]
@@ -12,17 +15,32 @@ public class EntitySpawner : MonoBehaviour {
     [SerializeField]
     private float zSpawnOffset;
     private RandomWordGenerator wordGenerator;
+    public float powerupChance = 1f;
 
     private void Start() {
         wordGenerator = GetComponent<RandomWordGenerator>();
         gameManager = GameManager.Instance;
+        config = gameManager.config;
+        powerupChance = PlayerPrefs.GetFloat("PowerupChance", config.powerupChance);
+        Debug.Log(powerupChance);
     }
 
     public WordController SpawnWordGameObject(DifficultyLevel difficulty) {
         // Generate random word
         Word word = wordGenerator.generateWord(difficulty);
+        WordController controller = null;
         // Instantiate word GO
-        WordController controller = Instantiate(wordPrefab, GenerateSpawnPosition(difficulty), Quaternion.identity).GetComponent<WordController>();
+
+        int randomNumber = Random.Range(0, 10);
+        //Debug.Log(randomNumber);
+        if (randomNumber < powerupChance)
+        {
+            controller = Instantiate(wordPowerupPrefab, GenerateSpawnPosition(difficulty), Quaternion.identity).GetComponent<WordController>();
+        }
+        else
+        {
+            controller = Instantiate(wordPrefab, GenerateSpawnPosition(difficulty), Quaternion.identity).GetComponent<WordController>();
+        }
         controller.SetWord(word);
         gameManager.AddWordController(controller);
         return controller;

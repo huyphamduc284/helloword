@@ -290,6 +290,7 @@ GameObject:
   - component: {fileID: 94421950}
   - component: {fileID: 94421949}
   - component: {fileID: 94421948}
+  - component: {fileID: 94421951}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -367,6 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wordPrefab: {fileID: 5592726464224038169, guid: 107d15b321d0cbe478e2e29b30b34877, type: 3}
+  wordPowerupPrefab: {fileID: 5592726464224038169, guid: 456cb6dd9c7c9e14791c5f9c72c5f4a5, type: 3}
   verticalSpawnOffset: 1
   horizontalSpawnOffset: 2
   zSpawnOffset: -2
@@ -395,6 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7875548d5ef3944fb739607c6caa128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficultyMultiplier: 1
 --- !u!50 &94421948
 Rigidbody2D:
   serializedVersion: 4
@@ -490,6 +493,18 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: a167f0a0c5d28cd41b374bacaf9d55a3, type: 3}
   - sound: 3
     audioClip: {fileID: 8300000, guid: d310aea5bc827364fbad5d6a8297ed82, type: 3}
+--- !u!114 &94421951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94421940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c79ed29d5251b694192b92b93089f32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &165315201
 GameObject:
   m_ObjectHideFlags: 0
@@ -5515,7 +5530,7 @@ PrefabInstance:
       objectReference: {fileID: 1470232904424208, guid: f6e32daa086f98a45a3106da59e94778, type: 3}
     - target: {fileID: 7088960811562699482, guid: d69014ce00b9a3d4cbbb73624413a2bd, type: 3}
       propertyPath: rotationSpeed
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7088960812281203448, guid: d69014ce00b9a3d4cbbb73624413a2bd, type: 3}
       propertyPath: m_LocalPosition.y

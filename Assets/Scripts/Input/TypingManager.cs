@@ -39,18 +39,24 @@ public class TypingManager : MonoBehaviour {
             Turret.t.Shoot();
 
             activeWord.TypeLetter();
+            if (GameManager.Instance.Powerups.IsPowerActive("InstantKill"))
+            {
+                if (activeWord.isPowerup)
+                {
+                    GameManager.Instance.Powerups.ActivatePowerup("InstantKill", 5);
+                }
+                DestroyWord(activeWord, 0.1f);
+            }
             if (activeWord.WordTyped()) {
+                if (activeWord.isPowerup)
+                {
+                    GameManager.Instance.Powerups.ActivatePowerup("InstantKill", 5);
+                }
                 // remove word if already typed
                 activeWord.ToggleTimer();
                 progressionManager.AddToAverageCPM(activeWord);
 
-                Instantiate(explosionEffect, activeWord.transform.position, Quaternion.identity);
-                GameManager.Instance.SoundManager.PlaySound(Sound.WordTyped);
-                CameraController.c.isShakingCam = false;
-                CameraController.c.Shake(0.1f, 0.2f, 40.0f);
-                
-                activeWord.DestroySelf(0.1f); // POSSIBLE RACE CONDITION
-                wordControllers.Remove(activeWord);
+                DestroyWord(activeWord, 0.1f);
                 activeWord = null;
             }
         } else {
@@ -62,23 +68,41 @@ public class TypingManager : MonoBehaviour {
         }
     }
 
-    public void DestroyMissedWord(WordController word) {
-        CameraController.c.isShakingCam = false;
-        CameraController.c.Shake(0.1f, 0.3f, 40.0f);
-        Instantiate(explosionEffect, word.transform.position, Quaternion.identity);
+    public void DestroyMissedWord(WordController word, bool spawnEffect = true) {
 
         if (activeWord == word) {
             activeWord = null;
         }
 
-        word.DestroySelf();
+        DestroyWord(word, spawnEffect: spawnEffect);
+    }
+
+    private void DestroyWord(WordController word, float delay = 0f, bool spawnEffect = true)
+    {
+        if (spawnEffect)
+        {
+            Instantiate(explosionEffect, word.transform.position, Quaternion.identity);
+            GameManager.Instance.SoundManager.PlaySound(Sound.WordTyped);
+            CameraController.c.isShakingCam = false;
+            CameraController.c.Shake(0.1f, 0.2f, 40.0f);
+        }
+
+        word.DestroySelf(delay); // POSSIBLE RACE CONDITION
         wordControllers.Remove(word);
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Word") && other.TryGetComponent<WordController>(out WordController word)) {
-            DestroyMissedWord(word);
-            progressionManager.MissWord();
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Word") && other.TryGetComponent<WordController>(out WordController word))
+        {
+            Transform child = other.transform.Find("Enemy");
+            if (child != null && child.CompareTag("Enemy"))
+            {
+                DestroyMissedWord(word);
+                progressionManager.MissWord();
+                return;
+            }
+            DestroyMissedWord(word, spawnEffect: false);
         }
     }
 

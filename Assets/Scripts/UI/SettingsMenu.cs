@@ -8,6 +8,7 @@ public class SettingsMenu : MonoBehaviour {
     [SerializeField] private TMP_Dropdown langDropdown;
     [SerializeField] private TMP_InputField difficultyInput;
     [SerializeField] private TMP_InputField spawnDelayInput;
+    [SerializeField] private TMP_InputField powerupChanceInput;
     List<string> stringThemes;
 
     private void Start() {
@@ -26,11 +27,14 @@ public class SettingsMenu : MonoBehaviour {
             langDropdown.value = 1;
         }
 
-        difficultyInput.text = PlayerPrefs.GetFloat("DifficultyMult", 1).ToString();
+        difficultyInput.text = PlayerPrefs.GetFloat("DifficultyMult", config.difficultyMultiplier).ToString();
         difficultyInput.onValueChanged.AddListener(HandleDifficultyChange);
 
-        spawnDelayInput.text = PlayerPrefs.GetFloat("SpawnDelay", 2).ToString();
+        spawnDelayInput.text = PlayerPrefs.GetFloat("SpawnDelay", config.initialSpawnDelay).ToString();
         spawnDelayInput.onValueChanged.AddListener(HandleSpawnDelayChange);
+
+        powerupChanceInput.text = PlayerPrefs.GetFloat("PowerupChance", config.powerupChance).ToString();
+        powerupChanceInput.onValueChanged.AddListener(HandlePowerupChanceChange);
     }
 
     public void HandleThemeChange(int val) {
@@ -73,6 +77,20 @@ public class SettingsMenu : MonoBehaviour {
         else
         {
             PlayerPrefs.SetFloat("SpawnDelay", config.initialSpawnDelay);
+            PlayerPrefs.Save();
+        }
+    }
+
+    void HandlePowerupChanceChange(string value)
+    {
+        if (float.TryParse(value, out float delayValue))
+        {
+            PlayerPrefs.SetFloat("PowerupChance", delayValue);
+            PlayerPrefs.Save();
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("PowerupChance", config.initialSpawnDelay);
             PlayerPrefs.Save();
         }
     }

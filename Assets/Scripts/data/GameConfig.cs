@@ -12,6 +12,7 @@ public class GameConfig : ScriptableObject {
     public string hardWordsFile;
 
     [Header("Game parameters")]
+    public float powerupChance;
     public float difficultyMultiplier;
     public float initialSpawnDelay;
     public float easyFallSpeed;

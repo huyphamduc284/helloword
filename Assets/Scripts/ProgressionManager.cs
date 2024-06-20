@@ -31,8 +31,8 @@ public class ProgressionManager : MonoBehaviour {
             [DifficultyLevel.Medium] = config.mediumFallSpeed,
             [DifficultyLevel.Hard] = config.hardFallSpeed,
         };
-        difficultyMultiplier = PlayerPrefs.GetFloat("DifficultyMult", 1);
-        initialSpawnDelay = PlayerPrefs.GetFloat("SpawnDelay", 2);
+        difficultyMultiplier = PlayerPrefs.GetFloat("DifficultyMult", config.difficultyMultiplier);
+        initialSpawnDelay = PlayerPrefs.GetFloat("SpawnDelay", config.initialSpawnDelay);
         //Debug.Log(difficultyMultiplier);
 
         StartCoroutine(SpawnRepeating());
