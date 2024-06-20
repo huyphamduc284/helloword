@@ -27,40 +27,51 @@ public class WordController : MonoBehaviour {
     public bool TimerRunning { get; private set; } = false;
     [SerializeField] private Sprite[] sprites; // Assign your 4 sprites in the Unity Editor
     [SerializeField] private SpriteRenderer prefabSpriteRenderer; // Assign your prefab's SpriteRenderer in the Unity Editor
+    public bool isPowerup = false;
 
     public void SetSpriteBasedOnWordLength(string word)
     {
         int spriteIndex;
-
-        if (word.Length <= 4)
+        string _isPowerup = prefabSpriteRenderer.gameObject.name;
+        if (_isPowerup.Equals("Powerup"))
         {
-            spriteIndex = 3;
-            SetColor(new Color(50 / 255f, 173 / 255f, 214 / 255f, 1));
-            AdjustScale(-0.15f);
+            isPowerup = true;
+            spriteIndex = 0;
             SetTrailTime(1.5f);
         }
-        else if (word.Length <= 6)
-        {
-            spriteIndex = 0;
-            SetColor(new Color(214 / 255f, 50 / 255f, 50 / 255f, 1));
-            SetTrailTime(2f);
-        }
-        else if (word.Length <= 10)
-        {
-            spriteIndex = 1;
-            SetColor(new Color(230 / 255f, 167 / 255f, 54 / 255f, 1));
-            SetTrailTime(5f);
-        }
-        else if (word.Length > 10)
-        {
-            spriteIndex = 2;
-            SetColor(new Color(50 / 255f, 173 / 255f, 214 / 255f, 1));
-            SetTrailTime(5f);
-        }
-        else
-        {
-            spriteIndex = 0;
-            SetColor(new Color(50 / 255f, 173 / 255f, 214 / 255f, 1));
+        else {
+
+            if (word.Length <= 3)
+            {
+                spriteIndex = 3;
+                SetColor(new Color(50 / 255f, 173 / 255f, 214 / 255f, 1));
+                AdjustScale(-0.15f);
+                SetTrailTime(1.5f);
+            }
+            else if (word.Length <= 6)
+            {
+                spriteIndex = 0;
+                SetColor(new Color(214 / 255f, 50 / 255f, 50 / 255f, 1));
+                SetTrailTime(1.7f);
+            }
+            else if (word.Length <= 10)
+            {
+                spriteIndex = 1;
+                SetColor(new Color(230 / 255f, 167 / 255f, 54 / 255f, 1));
+                SetTrailTime(3.3f);
+            }
+            else if (word.Length > 10)
+            {
+                spriteIndex = 2;
+                SetColor(new Color(50 / 255f, 173 / 255f, 214 / 255f, 1));
+                SetTrailTime(3.5f);
+            }
+            else
+            {
+                spriteIndex = 0;
+                SetColor(new Color(50 / 255f, 173 / 255f, 214 / 255f, 1));
+                SetTrailTime(2f);
+            }
         }
         //Debug.Log(spriteIndex);
 

@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f4bf5067b92dd947a15eb8dc970b4c0, type: 3}
-  m_Name: difficultyMultiplier
+  m_Name: GameConfig_Finer
   m_EditorClassIdentifier: 
   easyWordsFile: easy
   mediumWordsFile: medium
   hardWordsFile: hard
+  powerupChance: 1
   difficultyMultiplier: 1
   initialSpawnDelay: 2
   easyFallSpeed: 1.5

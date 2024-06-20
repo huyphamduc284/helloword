@@ -62,7 +62,7 @@ public class MenuController : MonoBehaviour {
 
     void UpdateDifficultyUI()
     {
-        float difficulty = PlayerPrefs.GetFloat("DifficultyMult", 1);
+        float difficulty = PlayerPrefs.GetFloat("DifficultyMult", config.difficultyMultiplier);
         difficultyText.text = "Difficulty: " + difficulty.ToString();
     }
 }
