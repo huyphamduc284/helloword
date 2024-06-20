@@ -45,8 +45,8 @@ public class TypingManager : MonoBehaviour {
                 {
                     GameManager.Instance.Powerups.ActivatePowerup("InstantKill", 5);
                 }
-                activeWord.ToggleTimer(); // comment this out if the game gets too fast too quick
-                progressionManager.AddToAverageCPM(activeWord); // comment this out if the game gets too fast too quick
+                //activeWord.ToggleTimer(); // comment this out if the game gets too fast too quick
+                //progressionManager.AddToAverageCPM(activeWord); // comment this out if the game gets too fast too quick
 
                 DestroyWord(activeWord, 0.1f);
                 activeWord = null;
