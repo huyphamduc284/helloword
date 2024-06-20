@@ -118,11 +118,26 @@ public class UIManager : MonoBehaviour {
     }
 
     public void SetAverageCPMText(float speed) {
-        averageCPM.text = $"{speed:0}";
+        if (float.IsInfinity(speed))
+        {
+            averageCPM.text = "!!!";
+        }
+        else
+        {
+            averageCPM.text = $"{speed:0}";
+        }
     }
 
-    public void SetAverageCPMLast10Text(float speed) {
-        averageCPMLast10.text = $"({speed:0})";
+    public void SetAverageCPMLast10Text(float speed)
+    {
+        if (float.IsInfinity(speed))
+        {
+            averageCPMLast10.text = "!!!";
+        }
+        else
+        {
+            averageCPMLast10.text = $"({speed:0})";
+        }
     }
 
     public void SetScoreText(int score) {
